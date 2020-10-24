@@ -34,6 +34,8 @@
             this.lbTranslation = new System.Windows.Forms.Label();
             this.lBoxWords = new System.Windows.Forms.ListBox();
             this.tbTranslation = new System.Windows.Forms.TextBox();
+            this.btnExportToCsv = new System.Windows.Forms.Button();
+            this.btnImportFromCsv = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -85,12 +87,34 @@
             this.tbTranslation.Size = new System.Drawing.Size(264, 20);
             this.tbTranslation.TabIndex = 5;
             // 
+            // btnExportToCsv
+            // 
+            this.btnExportToCsv.Location = new System.Drawing.Point(547, 149);
+            this.btnExportToCsv.Name = "btnExportToCsv";
+            this.btnExportToCsv.Size = new System.Drawing.Size(121, 23);
+            this.btnExportToCsv.TabIndex = 6;
+            this.btnExportToCsv.Text = "Export to CSV";
+            this.btnExportToCsv.UseVisualStyleBackColor = true;
+            this.btnExportToCsv.Click += new System.EventHandler(this.btnExportToCsv_Click);
+            // 
+            // btnImportFromCsv
+            // 
+            this.btnImportFromCsv.Location = new System.Drawing.Point(547, 179);
+            this.btnImportFromCsv.Name = "btnImportFromCsv";
+            this.btnImportFromCsv.Size = new System.Drawing.Size(121, 23);
+            this.btnImportFromCsv.TabIndex = 7;
+            this.btnImportFromCsv.Text = "Import from CSV";
+            this.btnImportFromCsv.UseVisualStyleBackColor = true;
+            this.btnImportFromCsv.Click += new System.EventHandler(this.btnImportFromCsv_Click);
+            // 
             // Woerterbuch
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnImportFromCsv);
+            this.Controls.Add(this.btnExportToCsv);
             this.Controls.Add(this.tbTranslation);
             this.Controls.Add(this.lBoxWords);
             this.Controls.Add(this.lbTranslation);
@@ -112,6 +136,8 @@
         private System.Windows.Forms.Label lbTranslation;
         private System.Windows.Forms.ListBox lBoxWords;
         private System.Windows.Forms.TextBox tbTranslation;
+        private System.Windows.Forms.Button btnExportToCsv;
+        private System.Windows.Forms.Button btnImportFromCsv;
     }
 }
 
