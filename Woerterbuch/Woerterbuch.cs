@@ -12,6 +12,7 @@ namespace Woerterbuch
 {
     public partial class Woerterbuch : Form
     {
+        bool isUpdating = false;
         Dictionary<string, string> dictionary = new Dictionary<string, string>();
         private string path = "";
 
@@ -84,14 +85,15 @@ namespace Woerterbuch
                 string[] stringArray = fileLine.Split(';');
                 dictionary.Add(stringArray[0], stringArray[1]);
             }
-
             UpdateTranslations();
         }
 
         private void SortList()
         {
             List<string> sortListKeys = new List<string>(dictionary.Keys);
+            sortListKeys.Sort();
 
+            // Dictionary<string, string> unOrderedDictionary = new Dictionary<string, string>( dictionary);
             sortListKeys.Sort();
 
             Dictionary<string, string> orderedDictionary = new Dictionary<string, string>();
@@ -105,7 +107,98 @@ namespace Woerterbuch
             dictionary = orderedDictionary;
         }
 
-        
+        private void tbFindGermanWord_TextChanged(object sender, EventArgs e)
+        {
+
+            Dictionary<string, string> germanSearchDictionary = new Dictionary<string, string>();
+            string germanWordToSearch = tbFindGermanWord.Text;
+
+            foreach (var dictionaryItem in this.dictionary)
+            {
+                if (dictionaryItem.Key.ToUpper().Contains(germanWordToSearch.ToUpper()))
+                {
+                    germanSearchDictionary.Add(dictionaryItem.Key, dictionaryItem.Value);
+                }
+            }
+
+            updateSearchBox(germanSearchDictionary);
+        }
+
+        private void updateSearchBox(Dictionary<string, string> dictionary)
+        {
+            lBoxSearchResultGerman.DataSource = dictionary.Keys.ToList();
+            lBoxSearchResultEnglisch.DataSource = dictionary.Values.ToList();
+        }
+
+        private void tbFindEnglischWord_TextChanged(object sender, EventArgs e)
+        {
+
+            Dictionary<string, string> englischSearchDictionary = new Dictionary<string, string>();
+            string germanWordToSearch = tbFindEnglischWord.Text;
+
+            foreach (var dictionaryItem in this.dictionary)
+            {
+                if (dictionaryItem.Value.ToUpper().Contains(germanWordToSearch.ToUpper()))
+                {
+                    englischSearchDictionary.Add(dictionaryItem.Key, dictionaryItem.Value);
+                }
+            }
+
+            updateSearchBox(englischSearchDictionary);
+        }
+
+        private void lBoxSearchResultGerman_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (isUpdating)
+                return;
+
+            var selectedWord = lBoxSearchResultGerman.SelectedItem as string;
+
+            if (!string.IsNullOrEmpty(selectedWord) && dictionary.ContainsKey(selectedWord))
+            {
+                // Das war zum Testen: Console.WriteLine(selectedWord);
+                string englischWord = "";
+                // Das war zum Testen: bbool valueExists = dictionary.TryGetValue(selectedWord, out englischWord);
+                // Das war zum Testen: Console.WriteLine(englischWord);
+
+                if (dictionary.TryGetValue(selectedWord, out englischWord))
+                {
+                    isUpdating = true;
+                    lBoxSearchResultEnglisch.SelectedItem = englischWord;
+                    isUpdating = false;
+                }
+
+            }
+        }
+
+        private void lBoxSearchResultEnglisch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isUpdating)
+                return;
+
+            var selectedWord = lBoxSearchResultEnglisch.SelectedItem as string;
+
+            if (!string.IsNullOrEmpty(selectedWord) && dictionary.ContainsValue(selectedWord))
+            {
+                // Das war zum Testen: Console.WriteLine(selectedWord);
+                string germanWord = "";
+                // Das war zum Testen: bbool valueExists = dictionary.TryGetValue(selectedWord, out englischWord);
+                // Das war zum Testen: Console.WriteLine(englischWord);
+
+                //lBoxSearchResultGerman.SelectedItem = "Hallo";
+
+                bool contains = dictionary.ContainsValue(selectedWord);
+
+                if(dictionary.Values.Any(x => x == selectedWord)) { 
+                    germanWord = dictionary.FirstOrDefault(x => x.Value == selectedWord).Key;
+                    isUpdating = true;
+                    lBoxSearchResultGerman.SelectedItem = germanWord;
+                    isUpdating = false;
+                }
+
+            }
+        }
     }
 
 }
