@@ -16,8 +16,7 @@ namespace Woerterbuch
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Woerterbuch());
-         
+            Application.Run(new Woerterbuch());         
         }
 
        
