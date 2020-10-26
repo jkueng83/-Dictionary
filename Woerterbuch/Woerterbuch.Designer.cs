@@ -31,18 +31,26 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.tbGermanWord = new System.Windows.Forms.TextBox();
             this.tbEnglischWord = new System.Windows.Forms.TextBox();
-            this.lbTranslation = new System.Windows.Forms.Label();
+            this.lbTranslationDeutsch = new System.Windows.Forms.Label();
             this.lBoxWords = new System.Windows.Forms.ListBox();
             this.tbTranslation = new System.Windows.Forms.TextBox();
             this.btnExportToCsv = new System.Windows.Forms.Button();
             this.btnImportFromCsv = new System.Windows.Forms.Button();
+            this.tbFindGermanWord = new System.Windows.Forms.TextBox();
+            this.lbTranslationEnglisch = new System.Windows.Forms.Label();
+            this.lbSearchGermanWord = new System.Windows.Forms.Label();
+            this.lbSearchEnglischWord = new System.Windows.Forms.Label();
+            this.tbFindEnglischWord = new System.Windows.Forms.TextBox();
+            this.lBoxSearchResultGerman = new System.Windows.Forms.ListBox();
+            this.lBoxSearchResultEnglisch = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(368, 149);
+            this.btnAdd.Location = new System.Drawing.Point(128, 137);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(150, 28);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "hinzufügen";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -50,48 +58,55 @@
             // 
             // tbGermanWord
             // 
-            this.tbGermanWord.Location = new System.Drawing.Point(96, 87);
+            this.tbGermanWord.Location = new System.Drawing.Point(128, 107);
+            this.tbGermanWord.Margin = new System.Windows.Forms.Padding(4);
             this.tbGermanWord.Name = "tbGermanWord";
-            this.tbGermanWord.Size = new System.Drawing.Size(100, 20);
+            this.tbGermanWord.Size = new System.Drawing.Size(300, 22);
             this.tbGermanWord.TabIndex = 1;
             // 
             // tbEnglischWord
             // 
-            this.tbEnglischWord.Location = new System.Drawing.Point(547, 87);
+            this.tbEnglischWord.Location = new System.Drawing.Point(539, 107);
+            this.tbEnglischWord.Margin = new System.Windows.Forms.Padding(4);
             this.tbEnglischWord.Name = "tbEnglischWord";
-            this.tbEnglischWord.Size = new System.Drawing.Size(100, 20);
+            this.tbEnglischWord.Size = new System.Drawing.Size(300, 22);
             this.tbEnglischWord.TabIndex = 2;
             // 
-            // lbTranslation
+            // lbTranslationDeutsch
             // 
-            this.lbTranslation.AutoSize = true;
-            this.lbTranslation.Location = new System.Drawing.Point(259, 90);
-            this.lbTranslation.Name = "lbTranslation";
-            this.lbTranslation.Size = new System.Drawing.Size(46, 13);
-            this.lbTranslation.TabIndex = 3;
-            this.lbTranslation.Text = "De -- En";
+            this.lbTranslationDeutsch.AutoSize = true;
+            this.lbTranslationDeutsch.Location = new System.Drawing.Point(125, 75);
+            this.lbTranslationDeutsch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTranslationDeutsch.Name = "lbTranslationDeutsch";
+            this.lbTranslationDeutsch.Size = new System.Drawing.Size(60, 17);
+            this.lbTranslationDeutsch.TabIndex = 3;
+            this.lbTranslationDeutsch.Text = "Deutsch";
             // 
             // lBoxWords
             // 
             this.lBoxWords.FormattingEnabled = true;
-            this.lBoxWords.Location = new System.Drawing.Point(96, 237);
+            this.lBoxWords.ItemHeight = 16;
+            this.lBoxWords.Location = new System.Drawing.Point(128, 292);
+            this.lBoxWords.Margin = new System.Windows.Forms.Padding(4);
             this.lBoxWords.Name = "lBoxWords";
-            this.lBoxWords.Size = new System.Drawing.Size(247, 121);
+            this.lBoxWords.Size = new System.Drawing.Size(300, 148);
             this.lBoxWords.TabIndex = 4;
             this.lBoxWords.SelectedIndexChanged += new System.EventHandler(this.lBoxWords_SelectedIndexChanged);
             // 
             // tbTranslation
             // 
-            this.tbTranslation.Location = new System.Drawing.Point(404, 237);
+            this.tbTranslation.Location = new System.Drawing.Point(539, 292);
+            this.tbTranslation.Margin = new System.Windows.Forms.Padding(4);
             this.tbTranslation.Name = "tbTranslation";
-            this.tbTranslation.Size = new System.Drawing.Size(264, 20);
+            this.tbTranslation.Size = new System.Drawing.Size(300, 22);
             this.tbTranslation.TabIndex = 5;
             // 
             // btnExportToCsv
             // 
-            this.btnExportToCsv.Location = new System.Drawing.Point(547, 149);
+            this.btnExportToCsv.Location = new System.Drawing.Point(128, 173);
+            this.btnExportToCsv.Margin = new System.Windows.Forms.Padding(4);
             this.btnExportToCsv.Name = "btnExportToCsv";
-            this.btnExportToCsv.Size = new System.Drawing.Size(121, 23);
+            this.btnExportToCsv.Size = new System.Drawing.Size(150, 28);
             this.btnExportToCsv.TabIndex = 6;
             this.btnExportToCsv.Text = "Export to CSV";
             this.btnExportToCsv.UseVisualStyleBackColor = true;
@@ -99,28 +114,100 @@
             // 
             // btnImportFromCsv
             // 
-            this.btnImportFromCsv.Location = new System.Drawing.Point(547, 179);
+            this.btnImportFromCsv.Location = new System.Drawing.Point(128, 210);
+            this.btnImportFromCsv.Margin = new System.Windows.Forms.Padding(4);
             this.btnImportFromCsv.Name = "btnImportFromCsv";
-            this.btnImportFromCsv.Size = new System.Drawing.Size(121, 23);
+            this.btnImportFromCsv.Size = new System.Drawing.Size(150, 28);
             this.btnImportFromCsv.TabIndex = 7;
             this.btnImportFromCsv.Text = "Import from CSV";
             this.btnImportFromCsv.UseVisualStyleBackColor = true;
             this.btnImportFromCsv.Click += new System.EventHandler(this.btnImportFromCsv_Click);
             // 
+            // tbFindGermanWord
+            // 
+            this.tbFindGermanWord.Location = new System.Drawing.Point(128, 490);
+            this.tbFindGermanWord.Name = "tbFindGermanWord";
+            this.tbFindGermanWord.Size = new System.Drawing.Size(300, 22);
+            this.tbFindGermanWord.TabIndex = 8;
+            this.tbFindGermanWord.TextChanged += new System.EventHandler(this.tbFindGermanWord_TextChanged);
+            // 
+            // lbTranslationEnglisch
+            // 
+            this.lbTranslationEnglisch.AutoSize = true;
+            this.lbTranslationEnglisch.Location = new System.Drawing.Point(536, 75);
+            this.lbTranslationEnglisch.Name = "lbTranslationEnglisch";
+            this.lbTranslationEnglisch.Size = new System.Drawing.Size(61, 17);
+            this.lbTranslationEnglisch.TabIndex = 9;
+            this.lbTranslationEnglisch.Text = "Englisch";
+            // 
+            // lbSearchGermanWord
+            // 
+            this.lbSearchGermanWord.AutoSize = true;
+            this.lbSearchGermanWord.Location = new System.Drawing.Point(125, 470);
+            this.lbSearchGermanWord.Name = "lbSearchGermanWord";
+            this.lbSearchGermanWord.Size = new System.Drawing.Size(159, 17);
+            this.lbSearchGermanWord.TabIndex = 10;
+            this.lbSearchGermanWord.Text = "Deutsches Wort suchen";
+            // 
+            // lbSearchEnglischWord
+            // 
+            this.lbSearchEnglischWord.AutoSize = true;
+            this.lbSearchEnglischWord.Location = new System.Drawing.Point(539, 469);
+            this.lbSearchEnglischWord.Name = "lbSearchEnglischWord";
+            this.lbSearchEnglischWord.Size = new System.Drawing.Size(141, 17);
+            this.lbSearchEnglischWord.TabIndex = 11;
+            this.lbSearchEnglischWord.Text = "search englisch word";
+            // 
+            // tbFindEnglischWord
+            // 
+            this.tbFindEnglischWord.Location = new System.Drawing.Point(539, 489);
+            this.tbFindEnglischWord.Name = "tbFindEnglischWord";
+            this.tbFindEnglischWord.Size = new System.Drawing.Size(300, 22);
+            this.tbFindEnglischWord.TabIndex = 12;
+            this.tbFindEnglischWord.TextChanged += new System.EventHandler(this.tbFindEnglischWord_TextChanged);
+            // 
+            // lBoxSearchResultGerman
+            // 
+            this.lBoxSearchResultGerman.FormattingEnabled = true;
+            this.lBoxSearchResultGerman.ItemHeight = 16;
+            this.lBoxSearchResultGerman.Location = new System.Drawing.Point(128, 546);
+            this.lBoxSearchResultGerman.Name = "lBoxSearchResultGerman";
+            this.lBoxSearchResultGerman.Size = new System.Drawing.Size(300, 132);
+            this.lBoxSearchResultGerman.TabIndex = 13;
+            this.lBoxSearchResultGerman.SelectedIndexChanged += new System.EventHandler(this.lBoxSearchResultGerman_SelectedIndexChanged);
+            // 
+            // lBoxSearchResultEnglisch
+            // 
+            this.lBoxSearchResultEnglisch.FormattingEnabled = true;
+            this.lBoxSearchResultEnglisch.ItemHeight = 16;
+            this.lBoxSearchResultEnglisch.Location = new System.Drawing.Point(539, 546);
+            this.lBoxSearchResultEnglisch.Name = "lBoxSearchResultEnglisch";
+            this.lBoxSearchResultEnglisch.Size = new System.Drawing.Size(300, 132);
+            this.lBoxSearchResultEnglisch.TabIndex = 14;
+            this.lBoxSearchResultEnglisch.SelectedIndexChanged += new System.EventHandler(this.lBoxSearchResultEnglisch_SelectedIndexChanged);
+            // 
             // Woerterbuch
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(928, 763);
+            this.Controls.Add(this.lBoxSearchResultEnglisch);
+            this.Controls.Add(this.lBoxSearchResultGerman);
+            this.Controls.Add(this.tbFindEnglischWord);
+            this.Controls.Add(this.lbSearchEnglischWord);
+            this.Controls.Add(this.lbSearchGermanWord);
+            this.Controls.Add(this.lbTranslationEnglisch);
+            this.Controls.Add(this.tbFindGermanWord);
             this.Controls.Add(this.btnImportFromCsv);
             this.Controls.Add(this.btnExportToCsv);
             this.Controls.Add(this.tbTranslation);
             this.Controls.Add(this.lBoxWords);
-            this.Controls.Add(this.lbTranslation);
+            this.Controls.Add(this.lbTranslationDeutsch);
             this.Controls.Add(this.tbEnglischWord);
             this.Controls.Add(this.tbGermanWord);
             this.Controls.Add(this.btnAdd);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Woerterbuch";
             this.Text = "Wörterbuch";
             this.ResumeLayout(false);
@@ -133,11 +220,18 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox tbGermanWord;
         private System.Windows.Forms.TextBox tbEnglischWord;
-        private System.Windows.Forms.Label lbTranslation;
+        private System.Windows.Forms.Label lbTranslationDeutsch;
         private System.Windows.Forms.ListBox lBoxWords;
         private System.Windows.Forms.TextBox tbTranslation;
         private System.Windows.Forms.Button btnExportToCsv;
         private System.Windows.Forms.Button btnImportFromCsv;
+        private System.Windows.Forms.TextBox tbFindGermanWord;
+        private System.Windows.Forms.Label lbTranslationEnglisch;
+        private System.Windows.Forms.Label lbSearchGermanWord;
+        private System.Windows.Forms.Label lbSearchEnglischWord;
+        private System.Windows.Forms.TextBox tbFindEnglischWord;
+        private System.Windows.Forms.ListBox lBoxSearchResultGerman;
+        private System.Windows.Forms.ListBox lBoxSearchResultEnglisch;
     }
 }
 
