@@ -45,6 +45,8 @@
             this.lBoxSearchResultEnglisch = new System.Windows.Forms.ListBox();
             this.lbWoerterbuch = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tbSearchWithLinqGermanWord = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -88,7 +90,7 @@
             // 
             this.lBoxWords.FormattingEnabled = true;
             this.lBoxWords.ItemHeight = 16;
-            this.lBoxWords.Location = new System.Drawing.Point(128, 292);
+            this.lBoxWords.Location = new System.Drawing.Point(128, 330);
             this.lBoxWords.Margin = new System.Windows.Forms.Padding(4);
             this.lBoxWords.Name = "lBoxWords";
             this.lBoxWords.Size = new System.Drawing.Size(300, 148);
@@ -97,7 +99,7 @@
             // 
             // tbTranslation
             // 
-            this.tbTranslation.Location = new System.Drawing.Point(539, 292);
+            this.tbTranslation.Location = new System.Drawing.Point(539, 330);
             this.tbTranslation.Margin = new System.Windows.Forms.Padding(4);
             this.tbTranslation.Name = "tbTranslation";
             this.tbTranslation.Size = new System.Drawing.Size(300, 22);
@@ -127,7 +129,7 @@
             // 
             // tbFindGermanWord
             // 
-            this.tbFindGermanWord.Location = new System.Drawing.Point(128, 490);
+            this.tbFindGermanWord.Location = new System.Drawing.Point(128, 528);
             this.tbFindGermanWord.Name = "tbFindGermanWord";
             this.tbFindGermanWord.Size = new System.Drawing.Size(300, 22);
             this.tbFindGermanWord.TabIndex = 8;
@@ -145,7 +147,7 @@
             // lbSearchGermanWord
             // 
             this.lbSearchGermanWord.AutoSize = true;
-            this.lbSearchGermanWord.Location = new System.Drawing.Point(125, 470);
+            this.lbSearchGermanWord.Location = new System.Drawing.Point(125, 508);
             this.lbSearchGermanWord.Name = "lbSearchGermanWord";
             this.lbSearchGermanWord.Size = new System.Drawing.Size(159, 17);
             this.lbSearchGermanWord.TabIndex = 10;
@@ -154,7 +156,7 @@
             // lbSearchEnglischWord
             // 
             this.lbSearchEnglischWord.AutoSize = true;
-            this.lbSearchEnglischWord.Location = new System.Drawing.Point(539, 469);
+            this.lbSearchEnglischWord.Location = new System.Drawing.Point(539, 507);
             this.lbSearchEnglischWord.Name = "lbSearchEnglischWord";
             this.lbSearchEnglischWord.Size = new System.Drawing.Size(141, 17);
             this.lbSearchEnglischWord.TabIndex = 11;
@@ -162,7 +164,7 @@
             // 
             // tbFindEnglischWord
             // 
-            this.tbFindEnglischWord.Location = new System.Drawing.Point(539, 489);
+            this.tbFindEnglischWord.Location = new System.Drawing.Point(539, 527);
             this.tbFindEnglischWord.Name = "tbFindEnglischWord";
             this.tbFindEnglischWord.Size = new System.Drawing.Size(300, 22);
             this.tbFindEnglischWord.TabIndex = 12;
@@ -172,7 +174,7 @@
             // 
             this.lBoxSearchResultGerman.FormattingEnabled = true;
             this.lBoxSearchResultGerman.ItemHeight = 16;
-            this.lBoxSearchResultGerman.Location = new System.Drawing.Point(128, 546);
+            this.lBoxSearchResultGerman.Location = new System.Drawing.Point(128, 584);
             this.lBoxSearchResultGerman.Name = "lBoxSearchResultGerman";
             this.lBoxSearchResultGerman.Size = new System.Drawing.Size(300, 132);
             this.lBoxSearchResultGerman.TabIndex = 13;
@@ -182,7 +184,7 @@
             // 
             this.lBoxSearchResultEnglisch.FormattingEnabled = true;
             this.lBoxSearchResultEnglisch.ItemHeight = 16;
-            this.lBoxSearchResultEnglisch.Location = new System.Drawing.Point(539, 546);
+            this.lBoxSearchResultEnglisch.Location = new System.Drawing.Point(539, 584);
             this.lBoxSearchResultEnglisch.Name = "lBoxSearchResultEnglisch";
             this.lBoxSearchResultEnglisch.Size = new System.Drawing.Size(300, 132);
             this.lBoxSearchResultEnglisch.TabIndex = 14;
@@ -208,12 +210,31 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Wörter ergänzen";
             // 
+            // tbSearchWithLinqGermanWord
+            // 
+            this.tbSearchWithLinqGermanWord.Location = new System.Drawing.Point(128, 301);
+            this.tbSearchWithLinqGermanWord.Name = "tbSearchWithLinqGermanWord";
+            this.tbSearchWithLinqGermanWord.Size = new System.Drawing.Size(300, 22);
+            this.tbSearchWithLinqGermanWord.TabIndex = 15;
+            this.tbSearchWithLinqGermanWord.TextChanged += new System.EventHandler(this.tbSearchWithLinqGermanWord_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(128, 281);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 17);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Suche mit Linq";
+            // 
             // Woerterbuch
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 719);
+            this.ClientSize = new System.Drawing.Size(907, 1004);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbSearchWithLinqGermanWord);
             this.Controls.Add(this.lBoxSearchResultEnglisch);
             this.Controls.Add(this.lBoxSearchResultGerman);
             this.Controls.Add(this.tbFindEnglischWord);
@@ -258,6 +279,8 @@
         private System.Windows.Forms.ListBox lBoxSearchResultEnglisch;
         private System.Windows.Forms.Label lbWoerterbuch;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbSearchWithLinqGermanWord;
+        private System.Windows.Forms.Label label2;
     }
 }
 
