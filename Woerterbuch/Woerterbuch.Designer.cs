@@ -47,6 +47,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearchWithLinqGermanWord = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.lBoxSearchLetterGerman = new System.Windows.Forms.ListBox();
+            this.lBoxSearchLetterEnglisch = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -227,12 +229,34 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Suche mit Linq";
             // 
+            // lBoxSearchLetterGerman
+            // 
+            this.lBoxSearchLetterGerman.FormattingEnabled = true;
+            this.lBoxSearchLetterGerman.ItemHeight = 16;
+            this.lBoxSearchLetterGerman.Location = new System.Drawing.Point(58, 584);
+            this.lBoxSearchLetterGerman.Name = "lBoxSearchLetterGerman";
+            this.lBoxSearchLetterGerman.Size = new System.Drawing.Size(45, 132);
+            this.lBoxSearchLetterGerman.TabIndex = 17;
+            this.lBoxSearchLetterGerman.SelectedIndexChanged += new System.EventHandler(this.lBoxSearchLetterGerman_SelectedIndexChanged);
+            // 
+            // lBoxSearchLetterEnglisch
+            // 
+            this.lBoxSearchLetterEnglisch.FormattingEnabled = true;
+            this.lBoxSearchLetterEnglisch.ItemHeight = 16;
+            this.lBoxSearchLetterEnglisch.Location = new System.Drawing.Point(478, 584);
+            this.lBoxSearchLetterEnglisch.Name = "lBoxSearchLetterEnglisch";
+            this.lBoxSearchLetterEnglisch.Size = new System.Drawing.Size(43, 132);
+            this.lBoxSearchLetterEnglisch.TabIndex = 18;
+            this.lBoxSearchLetterEnglisch.SelectedIndexChanged += new System.EventHandler(this.lBoxSearchLetterEnglisch_SelectedIndexChanged);
+            // 
             // Woerterbuch
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 1004);
+            this.Controls.Add(this.lBoxSearchLetterEnglisch);
+            this.Controls.Add(this.lBoxSearchLetterGerman);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbSearchWithLinqGermanWord);
             this.Controls.Add(this.lBoxSearchResultEnglisch);
@@ -281,6 +305,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbSearchWithLinqGermanWord;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox lBoxSearchLetterGerman;
+        private System.Windows.Forms.ListBox lBoxSearchLetterEnglisch;
     }
 }
 

@@ -15,13 +15,26 @@ namespace Woerterbuch
         bool isUpdating = false;
         Dictionary<string, string> dictionary = new Dictionary<string, string>();
         private string path = "";
+        private char[] searchLetters;
 
         public Woerterbuch()
         {
             InitializeComponent();
+
             path = "dictonary.csv";
 
             LoadDictonaryFromCsv();
+
+            this.searchLetters = new char[26];
+
+            for (int i = 0; i < this.searchLetters.Length; i++)
+            {
+                this.searchLetters[i] = (char)(i + 65);
+                Console.WriteLine("letter: " + this.searchLetters[i]);
+            }
+
+            lBoxSearchLetterGerman.DataSource = this.searchLetters.ToList();
+            lBoxSearchLetterEnglisch.DataSource = this.searchLetters.ToList();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -72,7 +85,7 @@ namespace Woerterbuch
             var newListTakeUnion = numberList.Take(3).Union(ortherNumberList);
 
             var newListFrom = from number in numberList
-                              where number > 2 && number %2 ==0
+                              where number > 2 && number % 2 == 0
                               select number;
 
         }
@@ -233,7 +246,6 @@ namespace Woerterbuch
                     lBoxSearchResultGerman.SelectedItem = germanWord;
                     isUpdating = false;
                 }
-
             }
         }
 
@@ -244,7 +256,43 @@ namespace Woerterbuch
 
         }
 
+        private void lBoxSearchLetterGerman_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            char searchLetter = (char)lBoxSearchLetterGerman.SelectedItem;
+            SearchFirstLetterGerman(searchLetter);
+        }
 
+        private void SearchFirstLetterGerman(char firstLetter)
+        {
+            Dictionary<string, string> seachDictionary = new Dictionary<string, string>();
+
+            foreach (var item in this.dictionary)
+            {
+                if (item.Key.ToUpper().Substring(0, 1).Equals(firstLetter.ToString().ToUpper()))
+                    seachDictionary.Add(item.Key, item.Value);
+            }
+
+            updateSearchBox(seachDictionary);
+        }
+
+        private void lBoxSearchLetterEnglisch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            char searchLetter = (char)lBoxSearchLetterEnglisch.SelectedItem;
+            SearchFirstLetterEnglisch(searchLetter);
+        }
+
+        private void SearchFirstLetterEnglisch(char firstLetter)
+        {
+            Dictionary<string, string> seachDictionary = new Dictionary<string, string>();
+
+            foreach (var item in this.dictionary)
+            {
+                if (item.Value.ToUpper().Substring(0, 1).Equals(firstLetter.ToString().ToUpper()))
+                    seachDictionary.Add(item.Key, item.Value);
+            }
+
+            updateSearchBox(seachDictionary);
+        }
     }
 
 }
